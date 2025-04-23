@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "server/index.js", "use": "@vercel/node" },
+    { "src": "public/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server/index.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ],
+  "env": {
+    "DEEPSEEK_API_KEY": "sk-1ed52979775749539bb244fa2aeefb64",
+    "NODE_ENV": "production",
+    "USE_MOCK": "false"
+  }
+}
